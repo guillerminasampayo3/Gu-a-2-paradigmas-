@@ -1,0 +1,16 @@
+| c1 c2 c3 r1 r2 discriminante|
+c1 := (UIManager default request: 'Escriba el coeficiente cuadrático') asNumber.
+
+c2 := (UIManager default request: 'Escriba el coeficiente lineal') asNumber.
+
+c3 := (UIManager default request: 'Escriba el término lineal') asNumber.
+
+"validar qeu no sea cero"
+(c1 = 0) ifTrue: [ UIManager default alert: 'el coeficiente cuadratico no puede ser cero' ]
+
+ifFalse: [ discriminante:= (c2 raisedTo: 2) - (4 * c1 * c3). 
+	r1:= (c2 negated + discriminante sqrt) / (2 * c1).
+	r2:= (c2 negated - discriminante sqrt) / (2 * c1).].
+
+Transcript show: ('La raiz 1 vale', r1 asString).
+Transcript show: ('la raiz 2 vale', r2 asString).
